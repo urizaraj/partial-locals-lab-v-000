@@ -17,7 +17,7 @@ class Student < ActiveRecord::Base
   def self.search(string)
     return self.all if string.empty?
     self.all.find_all do |student|
-      student.name.include?(string)
+      student.name.downcase.include?(string)
     end
   end
 end
