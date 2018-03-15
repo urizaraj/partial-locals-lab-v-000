@@ -14,7 +14,7 @@ class Student < ActiveRecord::Base
   has_many :classroom_students
   has_many :classrooms, through: :classroom_students
 
-  def search(string)
+  def self.search(string)
     return Student.all if string.empty?
     Student.all.find_all do |student|
       student.name.include?(string)
